@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <%- include('./auth/navbar')%>
+
+    <h1>EJS Template Engine</h1>
+    <p>There are more template engines other than ejs namely pug,handlebars</p>
+
+    <p>Ejs is a express tool which let's us to create dynamic html page</p>
+
+    <div><%#= content1%></div>  <!-- addition of # comments that ejs element-->
+    <div><%#= content2%></div>
+    <div><%#- content2%></div>
+
+    <div><%#= names %></div>
+    
+
+    <h1>Student Report Card</h1>
+    <p>Name: <%=student.name %></p>
+    <p>Grade: <%=student.grade %></p>
+    <p>Favourite Subject: <%=student.favSubj %></p>
+
+
+
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            padding: 80px 20px 20px 20px;
+            line-height: 1.6;
+        }
+
+        h1 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        p {
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        div {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <%- include('./auth/navbar')%>
+
+        <h1>EJS Template Engine</h1>
+        <p>There are more template engines other than EJS, namely Pug and Handlebars.</p>
+        <p>EJS is an Express tool which lets us create dynamic HTML pages.</p>
+
+        <div><%#= content1%></div> <!-- addition of # comments that ejs element-->
+        <div><%#= content2%></div>
+        <div><%#- content2%></div>
+        <div><%#= names %></div>
+
+        <h1 style="margin-top: 30px;">Student Report Card</h1>
+        <p><strong>Name:</strong> <%=student.name %></p>
+        <p><strong>Grade:</strong> <%=student.grade %></p>
+        <p><strong>Favourite Subject:</strong> <%=student.favSubj %></p>
+
+</body>
+
+</html>

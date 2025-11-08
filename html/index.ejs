@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URLShortner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <%- include('./auth/navbar')%>
+        <% if (message && message.length> 0) { %>
+            <% message.forEach(msg=> { %>
+                <h3 style="color:green;text-align: center;margin-top: 70px;" class="message">
+                    <%= msg %>
+                </h3>
+                <% }) %>
+                    <% } %>
+                        <div class="container">
+
+                            <h1>URL Shortner</h1>
+
+                            <form action="/url" method="POST">
+                                <div class="inputContainer">
+                                    <div>
+                                        <label for="url">URL:</label> <br>
+                                        <input type="text" name="URL" id="url">
+                                    </div>
+                                    <div>
+                                        <label for="shortCode">ShortCode:</label> <br>
+                                        <input type="text" name="Code" id="shortCode">
+                                    </div>
+                                </div>
+                                <%if (error){ %>
+                                    <p style="color:red;text-align: center;" class="error">
+                                        <%=error%>
+                                    </p>
+                                    <%}%>
+                                        <button type="submit">Shorten</button>
+                            </form>
+
+
+                            <div class="shortenPart">
+                                <h2>Shorten Urls:</h2>
+
+                                <div class="shortenUrls">
+                                    <ul>
+                                        <% urlArr.map( ({url,shortCode})=>{ %>
+                                            
+                                            <div class="urls">
+                                                <li>
+                                                <a href='/urls/<%= shortCode %>' target="_blank">
+                                                    https://<%=hosts%>/<%=shortCode%> 
+
+                                                    
+
+                                                    <hr>
+                                                     <p>
+                                                         <%=url%>
+                                                    </p>
+                                                </a>
+                                            </li>
+                                            </div>
+                                            <% } ) %>
+
+
+                                    </ul>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+
+
+
+
+                        <script>
+
+                            const elem = document.querySelector('.message');
+                            if (elem) {
+                                setTimeout(
+                                    () => {
+                                        elem.remove()
+                                    }, 3000
+                                )
+                            }
+                            const errorElem = document.querySelector('.error');
+                            if (errorElem) {
+                                setTimeout(
+                                    () => {
+                                        errorElem.remove()
+                                    }, 3000
+                                )
+                            }
+
+
+
+                            // const params = new URLSearchParams(window.location.search);
+                            // const alertMessage = params.get('message');
+
+                            // if (alertMessage) {
+                            //     window.history.replaceState({}, document.title, window.location.pathname);
+                            //     alert(alertMessage);
+
+                            // }
+
+
+
+
+                        </script>
+</body>
+
+</html> 
+
+
+
+
+

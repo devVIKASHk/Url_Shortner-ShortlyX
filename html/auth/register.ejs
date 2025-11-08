@@ -1,0 +1,75 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Register | RedEdge</title>
+  <link rel="stylesheet" href="authstyle.css">
+</head>
+
+<body class="container">
+  <%-include('./navbar')%>
+    <% if (message && message.length> 0) { %>
+      <% message.forEach(msg=> { %>
+        <h3 style="color:green;text-align: center;" class="message">
+          <%= msg %>
+        </h3>
+        <% }) %>
+          <% } %>
+            <div class="form-box">
+              <h2 class="title">Register</h2>
+              <form action="/register" method="POST">
+                <label for="userName">Name:</label>
+                <input type="text" name="name" placeholder="Enter your name" id='userName' required>
+
+                <label for="userEmail">Email:</label>
+                <input type="email" name="email" placeholder="Enter your email" id='userEmail' required>
+
+                <label for="userPass">Password:</label>
+                <input type="password" name="password" placeholder="Create a password" id="userPass" required>
+                <%if (error){ %>
+                  <p style="color:red;text-align: center;" class="error">
+                    <%=error%>
+                  </p>
+                  <%}%>
+                    <button type="submit" class="btn">Register</button>
+              </form>
+              <p class="footer-text">Already have an account? <a href="/login">Login Here</a></p>
+            </div>
+            <script>
+              const elem = document.querySelector('.message');
+              if (message) {
+                setTimeout(
+                  () => {
+                    elem.remove()
+                  }, 3000
+                )
+              }
+              const errorElem = document.querySelector('.error');
+              if (error) {
+                setTimeout(
+                  () => {
+                    errorElem.remove()
+                  }, 3000
+                )
+              }
+
+              // const params = new URLSearchParams(window.location.search);
+              // const alertMessage = params.get('message');
+
+              // if (alertMessage) {
+              //   window.history.replaceState({}, document.title, window.location.pathname);
+              //   alert(alertMessage);
+
+              // }
+
+
+
+
+            </script>
+</body>
+
+</html> 
+
+
+

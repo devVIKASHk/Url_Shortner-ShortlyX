@@ -1,0 +1,224 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+            color:white
+        }
+        body{
+            background-color:black
+        }
+        h2{
+            text-align: center;
+            margin-top: 70px;
+            font-weight: 600
+        }
+        .container1{
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%);
+            background-color: rgb(255, 255, 255,0.15);
+            margin-top: 20px;
+            width: 500px;
+            padding:20px;
+            border: 2px solid rgb(253, 249, 249,.8);
+        }
+
+        button{
+            background-color: red;
+            border-radius: 5px;
+            padding:10px;
+            outline: none;
+            border: none;
+            float: inline-end;
+            margin-top: 20px;
+        }
+        .container2{
+            position: absolute;
+            left: 50%;
+            top:38%;
+            transform: translate(-50%);
+            background-color: rgb(255, 255, 255,0.15);
+            
+            width: 500px;
+            padding:20px;
+            border: 2px solid rgb(253, 249, 249,.8);
+        }
+
+        input{
+            background-color: rgb(255, 255, 255,0) ;
+            border: none;
+            padding: 7px 5px;
+            color: wheat;
+            outline: none;
+            border-bottom:0.5px solid red;
+            caret-color: red;
+            
+        }
+        button{
+            cursor: pointer;
+        }
+        
+    </style>
+</head>
+<body>
+    <%- include('./auth/navbar.ejs') %>
+    <h2>Verify Your Email</h2>
+
+    <div class="container1">
+        <p>Email: <%= email%></p>
+        <p style="margin-top: 15px;color: wheat;">Your email has not been verified yet. Please verify your email by entering the 8-digit code or request a new verification link.</p>
+
+        <form action="/verify-email" method="POST">
+            <button type="submit">Send Verification Link</button>
+        </form>
+    </div>
+
+
+    <div class="container2">
+       
+        <form action="/verify-email-token" method="GET">
+            <input type="text" style="width: 100%;" placeholder="Enter 8-Digit Verification Code" name='token' maxlength="8">
+            <button type='submit' style="float: inline-start;">Verify Code</button>
+            <%if (error){%>
+                <p style="margin-top: 30px;position: relative;left: 20px;color: red;"><%=error%></p>
+            <%}%>
+
+        </form>
+
+    </div>
+
+
+</body>
+</html> -->
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Email</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: white;
+        }
+
+        body {
+            background-color: black;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 70px;
+            font-weight: 600;
+        }
+
+        .container1 {
+            position: absolute;
+            left: 50%;
+            top: 20%;
+            transform: translate(-50%);
+            background-color: rgba(255, 255, 255, 0.15);
+            width: 500px;
+            padding: 20px;
+            border: 2px solid rgba(253, 249, 249, 0.8);
+        }
+
+        .container1 p {
+            line-height: 1.6;
+        }
+
+        .container2 {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%);
+            background-color: rgba(255, 255, 255, 0.15);
+            width: 500px;
+            padding: 20px;
+            border: 2px solid rgba(253, 249, 249, 0.8);
+        }
+
+        input {
+            background-color: rgba(255, 255, 255, 0);
+            border: none;
+            padding: 7px 5px;
+            color: wheat;
+            outline: none;
+            border-bottom: 0.5px solid red;
+            caret-color: red;
+        }
+
+        button {
+            background-color: red;
+            border-radius: 5px;
+            padding: 10px 15px;
+            outline: none;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: darkred;
+        }
+
+        .container1 button {
+            float: right;
+        }
+
+        @media (max-width: 600px) {
+            .container1,
+            .container2 {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <%- include('./auth/navbar.ejs') %>
+        <h2>Verify Your Email</h2>
+
+        <div class="container1">
+            <p style="margin-bottom: 10px;"><strong>Email:</strong> <%= email%></p>
+            <p style="margin-top: 15px; color: wheat; line-height: 1.6;">
+                Your email has not been verified yet. Please verify your email by entering the 8-digit code or request
+                a new verification link.
+            </p>
+
+            <form action="/verify-email" method="POST">
+                <button type="submit">Send Verification Link</button>
+            </form>
+        </div>
+
+        <div class="container2">
+            <form action="/verify-email-token" method="GET">
+                <input type="text" style="width: 100%;" placeholder="Enter 8-Digit Verification Code" name='token'
+                    maxlength="8">
+                <button type='submit'>Verify Code</button>
+                <%if (error){%>
+                    <p style="margin-top: 30px; color: red;">
+                        <%=error%>
+                    </p>
+                    <%}%>
+            </form>
+        </div>
+
+</body>
+
+</html>

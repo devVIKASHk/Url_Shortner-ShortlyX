@@ -1,0 +1,106 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .navbar{
+            background-color:black;
+            color:white;
+
+        }
+        li{
+            list-style-type: none;
+            padding:15px
+        }
+        ul{
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <ul>
+            <li>Home</li>
+            <li>About</li>
+            <li>Contact</li>
+            <li>Login</li>
+            
+        </ul>
+    </div>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            font-family: 'Helvetica', sans-serif;
+        }
+
+        Nav {
+            width: 100%;
+            position: absolute;
+            top: 0;
+            background-color: rgba(10, 10, 10, 0.9);
+        }
+
+        a {
+            text-decoration: none;
+            color: whitesmoke;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: red;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        ul {
+            display: flex;
+            padding: 10px;
+            gap: 60px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 600px) {
+            ul {
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <Nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/report">Report</a></li>
+            <% if (!user) { %>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/register">Register</a></li>
+                <% } %>
+
+                    <% if (user) { %>
+                        <li><a href="/profile/<%=user.name%>">Profile</a></li>
+                        <li><a href="/logout">Logout</a></li>
+                        <% } %>
+        </ul>
+    </Nav>
+</body>
+
+</html>

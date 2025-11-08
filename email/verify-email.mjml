@@ -1,0 +1,51 @@
+<mjml>
+  <mj-body background-color="#f9f9f9">
+
+    <mj-section padding="20px">
+      <mj-column>
+
+        <!-- Title -->
+        <mj-text font-size="22px" font-weight="bold" color="#333333" align="center" padding-bottom="10px">
+          Verify Your Email Address
+        </mj-text>
+
+        <!-- Message -->
+        <mj-text font-size="16px" color="#555555" align="center" padding-bottom="10px">
+          Thanks for signing up! Please verify your email address to complete your registration.
+        </mj-text>
+
+        <!-- Label -->
+        <mj-text font-size='16px' color='#4b5563' line-height='24px' padding-bottom='24px'>
+          Your verification code:
+        </mj-text>
+
+        <!-- Token / Code Display -->
+        
+
+        <mj-text font-size='28px' font-weight='bold' color='#111827' align='center' padding='20px' background-color='#f5f7fa'> 
+
+        <%=code %>
+          
+        </mj-text>
+        <!-- Alternative message -->
+        <mj-text font-size="14px" color="#555555" align="center" padding-top="20px" padding-bottom="10px">
+          Alternatively, you can directly verify your account by clicking the button below:
+        </mj-text>
+
+        <!-- Verify Button -->
+        <mj-button href="<%=link%>" background-color="#1a73e8"
+          color="#ffffff" font-size="16px" padding="14px 24px" border-radius="4px">
+          Verify My Email
+        </mj-button>
+
+        <!-- Footer note -->
+        <mj-text font-size="12px" color="#98a2b3" align="center" padding-top="20px">
+          If you didn't sign up for this account, you can safely ignore this email.
+        </mj-text>
+
+      </mj-column>
+    </mj-section>
+
+  </mj-body>
+</mjml>
+``

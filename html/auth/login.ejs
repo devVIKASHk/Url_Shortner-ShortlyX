@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login | RedEdge</title>
+    <link rel="stylesheet" href="authstyle.css">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-…"
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+        />
+</head>
+
+<body class="container">
+    <%-include('./navbar')%>
+        <% if (message && message.length> 0) { %>
+            <% message.forEach(msg=> { %>
+                <h3 style="color:green;text-align: center;" class="message">
+                    <%= msg %>
+                </h3>
+                <% }) %>
+                    <% } %>
+                        <div class="form-box">
+                            <h2 class="title">Login</h2>
+                            <form action="/login" method="POST">
+                                <label>Email:</label>
+                                <input type="email" name="email" placeholder="Enter your email" required>
+
+                                <label>Password:</label>
+                                <input type="password" name="password" placeholder="Enter your password" required>
+                                <% if (error) { %>
+                                    <p style="color:red;">
+                                        <%= error %>
+                                    </p>
+                                    <% } %>
+                                        <button type="submit" class="btn">Login</button>
+                            </form>
+                            <p class="footer-text">Don't have an account? <a href="/register">Register Here</a></p>
+
+                            <a href="/google"><i class="fa-brands fa-google" style="color: #ff0000;"></i></a>
+
+                        </div>
+
+
+                        <script>
+
+                            const elem = document.querySelector('.message');
+                            if (elem) {
+                                setTimeout(
+                                    () => {
+                                        elem.remove()
+                                    }, 3000
+                                )
+                            }
+
+                            const errorElem = document.querySelector('.error');
+                            if (errorElem) {
+                                setTimeout(
+                                    () => {
+                                        errorElem.remove()
+                                    }, 3000
+                                )
+                            }
+
+                            // const params = new URLSearchParams(window.location.search);
+                            // const alertMessage = params.get('message');
+
+                            // if (alertMessage) {
+                            //     window.history.replaceState({}, document.title, window.location.pathname);
+                            //     alert(alertMessage);
+
+                            // }
+
+
+
+
+                        </script>
+
+
+
+
+
+</body>
+
+</html>
