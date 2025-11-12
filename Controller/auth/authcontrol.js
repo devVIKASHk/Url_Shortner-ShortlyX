@@ -62,7 +62,7 @@ export const postRegister = async (req,res)=>{
 
   
    const session = await infoValidation.createSession(savedData.insertId,{ip:req.clientIp,userAgent:req.headers['user-agent']});
-   console.log(ip)
+ 
     const token = infoValidation.createAccessToken({
         id:savedData.insertId,
         name:name,
