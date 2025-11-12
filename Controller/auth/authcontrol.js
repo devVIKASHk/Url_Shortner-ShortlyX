@@ -234,7 +234,9 @@ export const authgoogleSignup = async (req,res)=>{
 
 
 export const getGoogleLoginCallback = async (req,res)=>{
+  
     const {code,state}= req.query;
+    
 
     const cookieState = req.cookies.google_auth_state;
     const cookieCodeVerifier= req.cookies.google_code_verifier;
@@ -275,7 +277,7 @@ export const getGoogleLoginCallback = async (req,res)=>{
     }
 
     if (users &&  !users.providerAccountId){
-        const [data] = await insertOnlyToauthgoogleTable(
+        const [data] = await infoValidation.insertOnlyToauthgoogleTable(
             {
                 userId:users.id,
                 authprovider:'google',
@@ -285,7 +287,7 @@ export const getGoogleLoginCallback = async (req,res)=>{
     }
 
     //!JWT + SessionId Auth
-    console.log(users)
+
     const session = await infoValidation.createSession(users.id||insertedGoogleData.id,{ip:req.clientIp,userAgent:req.headers['user-agent']});
     const token = infoValidation.createAccessToken({
         id:users.id,

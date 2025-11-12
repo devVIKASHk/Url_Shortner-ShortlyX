@@ -206,7 +206,7 @@ export const emailTokenValidation = async (req,res)=>{
         }
         await updateTokenVerification(req.user.id)
         await tokenDeletionAfterVerification(req.user.id,tokenInfo.token) 
-        return res.redirect('/profile')
+        return res.redirect(`/profile/${req.user.id}`)
     }catch(err){
         console.error('Email Token Validation Error',err)
     }
